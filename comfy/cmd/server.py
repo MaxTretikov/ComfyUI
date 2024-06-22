@@ -788,7 +788,7 @@ class PromptServer(ExecutorToClientProgress):
     
     def pull_frontends(self):
         frontends_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "../web/")
-        p = Popen(["git", "submodule", "update", "--remote"], cwd=frontends_path, stdout=PIPE, stderr=PIPE)
+        p = Popen(["git", "submodule", "update", "--init"], cwd=frontends_path, stdout=PIPE, stderr=PIPE)
         output, error = p.communicate()
         if p.returncode == 127:
             print("Warning: git must be installed to automatically download the latest frontends.")
